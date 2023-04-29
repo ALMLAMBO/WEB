@@ -1,0 +1,58 @@
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.container-wrapper {
+    margin: 20px 50px 20px 50px;
+    padding: 15px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+body {
+    font-size: 15pt;
+}
+
+.section-alignment {
+    margin: 50px;
+}
+
+.section-header {
+    text-align: center;
+}
+
+ul {
+    margin: 20px;
+}
+
+ul > li {
+    text-align: justify;
+}
+
+p {
+    text-align: justify;
+    margin: 20px;
+}
+
+h5 {
+    margin: 20px;
+}
+
+#wasm-high-level {
+    width: 70%;
+}
+
+#wasm-text-binary {
+    width: 60%;
+}
+
+#wasm-js {
+    width: 70%;
+}
+
+#wasm-file-generation {
+    width: 70%;
+}

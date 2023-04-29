@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Web Assembly</title>
+	<link rel="stylesheet" href="css/materialize.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<section class="navbar-fixed" data-htextrainfo="1">
+		<nav class="nav-wrapper indigo darken-4" data-htextrainfo="2">
+			<a href="#" class="brand-logo" data-htextrainfo="3">WASM</a>
+			<a href="#" data-target="mobile-navbar" class="sidenav-trigger" data-htextrainfo="4"><i
+					class="material-icons" data-htextrainfo="5">menu</i></a>
+			<ul class="right hide-on-med-and-down" data-htextrainfo="6">
+				<li data-htextrainfo="7"><a href="#intro" data-htextrainfo="8">Въведение</a></li>
+				<li data-htextrainfo="9"><a href="#what-is-it" data-htextrainfo="10">Какво представлява</a></li>
+				<li data-htextrainfo="11"><a href="#how-it-works" data-htextrainfo="12">Как работи</a></li>
+				<li data-htextrainfo="13"><a href="#examples" data-htextrainfo="14">Примери</a></li>
+				<li data-htextrainfo="15"><a href="#pros-and-cons" data-htextrainfo="16">Предимства и недостатъци</a>
+				</li>
+				<li data-htextrainfo="17"><a href="#references" data-htextrainfo="18">Източници</a></li>
+			</ul>
+		</nav>
+	</section>
+
+	<ul class="sidenav" id="mobile-navbar" data-htextrainfo="19">
+		<li data-htextrainfo="20"><a href="#intro" data-htextrainfo="21">Въведение</a></li>
+		<li data-htextrainfo="22"><a href="#what-is-it" data-htextrainfo="23">Какво представлява</a></li>
+		<li data-htextrainfo="24"><a href="#how-it-works" data-htextrainfo="25">Как работи</a></li>
+		<li data-htextrainfo="26"><a href="#examples" data-htextrainfo="27">Примери</a></li>
+		<li data-htextrainfo="28"><a href="#pros-and-cons" data-htextrainfo="29">Предимства и недостатъци</a></li>
+		<li data-htextrainfo="30"><a href="#references" data-htextrainfo="31">Източници</a></li>
+	</ul>
+
+	<main class="content" data-htextrainfo="32">
+		<article class="container-wrapper" data-htextrainfo="33">
+			<section class="section-alignment card" id="intro" data-htextrainfo="34">
+				<h1 class="section-header" data-htextrainfo="35">Въведение</h1>
+				<p data-htextrainfo="36">
+					През последните около 10-20 единственият език, който е
+					можел да се ползва без никакъв проблем от браузърите, е бил JavaScript.
+					Всички допълнения към браузарите, които позволяват
+					изпълнението да други езици в браузъра, започнали бавно да умират като
+					за примери са
+					Java и Flash's Action Script. Всички останали езици
+					за уеб програмиране като например TypeScript и CoffeeScript се
+					компилират до JavaScript.
+				</p>
+				<p data-htextrainfo="37">
+					След 2017 година възниква нов начин за създаване на
+					уеб приложения - WebAssembly или Wasm за краткост. Целта на Wasm
+					не е да замени JavaScript, а по-скоро да бъде като
+					алтернативен начин за създаване на уеб приложения. В допълнение, Wasm е
+					създаден
+					да по такъв начин, че да могат всички езици да бъдат
+					използвани, в това число и JavaScript.
+				</p>
+			</section>
+
+			<section class="section-alignment card" id="what-is-it" data-htextrainfo="38">
+				<h1 class="section-header" data-htextrainfo="39">Какво представлява</h1>
+				<p data-htextrainfo="40">
+					Wasm представлява двоичен код, който е много близо до
+					Assembly, и е независим от това какъв език и платформа, защото
+					WebAssembly може да бъде компилиран от други езици и
+					може да бъде изпълняван в браузър или виртуална машина.
+					Също така е WebAssembly е отворен стандарт, чиято
+					главна цел е да предостави възможно най-голяма близост до
+					производителността на Assembly в браузъра и в същото
+					време да поддържа съвместимост със сегашните екосистеми и
+					стандарти.
+				</p>
+				<h2 class="section-header" data-htextrainfo="41">Основни концепции</h2>
+				<p data-htextrainfo="42">
+					Част от основните концепции на Wasm са:
+				</p>
+				<ul data-htextrainfo="43">
+					<li data-htextrainfo="44">
+						Модулярност - Wasm може да бъде разделен на
+						модули, за да бъде компилиран от браузъра или виртуалната машина.
+					</li>
+					<li data-htextrainfo="45">
+						Стек машина - Wasm работи на принципа на
+						инструкциите. От своя страна, инструкциите позволяват контрол над
+						циклите, аритметичните операции и достъпа до паметта.
+					</li>
+				</ul>
+				<h2 class="section-header" data-htextrainfo="46">Функционалности</h2>
+				<ul data-htextrainfo="47">
+					<li data-htextrainfo="48">
+						Wasm е език от ниско ниво, който не се пише от
+						хора, но може да компилира всички езици - C, C++, Rust, etc.
+					</li>
+					<li data-htextrainfo="49">
+						Wasm се представя в двоичен формат и съдържа
+						по-малко информация за сваляне като има и формат, четим от хора, който
+						се нарича WAT(WebAssembly Text).
+					</li>
+					<li data-htextrainfo="50">
+						Двоичните файлове на Wasm се декодират и компилират до машинен код без нуждата от оптимизация,
+						защото по време на генерирането на Wasm двоичните файлове те вече са напълно оптимизирани.
+					</li>
+				</ul>
+			</section>
+
+			<section class="section-alignment card" id="how-it-works" data-htextrainfo="51">
+				<h1 class="section-header" data-htextrainfo="52">Как работи</h1>
+				<p data-htextrainfo="53">
+					Въпреки своето име, Wasm не се води точно assembly
+					език, защото не зависи от това на каква машина ще бъде изпълняван кода.
+					Wasm е предназначен за браузъра, когато се
+					предоставя код за изпълнение на браузъра, не се знае на каква машина
+					кодът ще работи.
+					На следващата фигура е показано на най-високо ниво
+					процесът на работа на Wasm.
+				</p>
+				<img id="wasm-high-level" src="Web%20Assembly_files/wasm-high-level.png" alt="" data-htextrainfo="54">
+				<p data-htextrainfo="55">Фигура 1. Процес на работа на Wasm на най-високо ниво</p>
+				<p data-htextrainfo="56">
+					Wasm се състои от файлове, които са четими от хората, и такива, които се изпълняват от браузърите.
+					На следващата фигура това може да бъде разгледано.
+				</p>
+				<img id="wasm-text-binary" src="Web%20Assembly_files/wasm-text-binary.png" alt="" data-htextrainfo="57">
+				<p data-htextrainfo="58">Фигура 2. Файлове на Wasm</p>
+				<p data-htextrainfo="59">
+					Wasm позволява на езици като C, C++ и други да бъдат
+					компилирани до така наречените модули. Всеки модул може да бъде зареден
+					в браузъра и да бъде използван от JavaScript. В
+					допълнение, Wasm не е създаден да замени JavaScript, а да работи в
+					синхрон с него.
+					На следващата фигура това може да бъде разгледано.
+				</p>
+				<img id="wasm-js" src="Web%20Assembly_files/wasm-js.png" alt="" data-htextrainfo="60">
+				<p data-htextrainfo="61">Фигура 3. Работа на Wasm</p>
+				<p data-htextrainfo="62">
+					Примерът, който ще бъде разгледан за това как работи WebAssembly, ще бъде програма, написана на C.
+					Кодът,
+					който ще се представи, може да бъде разгледан в секцията Код 1.
+				</p>
+				<pre data-htextrainfo="63">                   <code data-htextrainfo="64">
+                       #include &lt;stdio.h&gt;
+
+                       int main() {
+                            printf("Hello World!\n");
+                            return 0;
+                       }
+                   </code>
+               </pre>
+				<p data-htextrainfo="65">Код 1. Програма Hello World, написана на С.</p>
+				<p data-htextrainfo="66">
+					За да бъде компилирана програмата с Wasm, е необходимо да се инсталира Emscripten.
+					Изпълнявайки командата, показана в Код 2, ще бъдат генерирани един файл с разширение wasm,
+					един html документ и един js файл.
+				</p>
+				<pre data-htextrainfo="67">                   <code data-htextrainfo="68">
+                       emcc hello.c -s WASM=1 -o hello.html
+                   </code>
+               </pre>
+				<p data-htextrainfo="69">
+					Kод 2. Генериране на на файлове за изпълнение в браузъра.
+				</p>
+				<p data-htextrainfo="70">
+					По време на изпълнението се генерират html и js
+					файловете, защото Wasm няма директен достъп до
+					APIs на която и да е платформа - DOM, WebGL и други.
+					Генерирането на файловете може да бъде разгледано на Фигура 4.
+					След изпълнението на командата от Код 2, html файлът
+					може да бъде отворен в браузър, зареждайки js файла, който зарежда wasm
+					файла.
+					Всеки wasm файл може да бъде разглеждан като модул от
+					дадено приложение - може да бъде зареждан,
+					изтеглен и изпълняван. Всеки браузър има възможността
+					за зареждане и експортиране на тези wasm
+					файлове, което позволява да се работи по същия начин
+					както с обекти от JavaScript. В JavaScript
+					Има функции, които могат да бъдат извикани от
+					WebAssembly модулите, и WebAssembly функции, които
+					могат да бъдат извикани от JavaScript код.
+					Примитивните типове, които се предоставят, са всички числа.
+					Предаването на сложни обекти между JavaScript и
+					WebAssembly не е проста задача. Например, за да пердадем
+					стринг между двете, трябва стрингът да се представи
+					като масив от числа и след това да се подаде указател
+					към този масив. Също така, WebAssembly може да чете и
+					пише само от своята линейна памет и няма пряк достъп
+					до външните JavaScript променливи, освен ако не се
+					копират в паметта или подадени чрез call stack.
+				</p>
+				<img id="wasm-file-generation" src="Web%20Assembly_files/wasm-file-generation.png" alt=""
+					data-htextrainfo="71">
+				<p data-htextrainfo="72">
+					Фигура 4. Генериране на файлове за wasm
+				</p>
+			</section>
+
+			<section class="section-alignment card" id="examples" data-htextrainfo="73">
+				<h1 class="section-header" data-htextrainfo="74">Примери</h1>
+				<p data-htextrainfo="75">
+					В този раздел ще бъдат разгледани примери за приложение на WebAssembly.
+				</p>
+				<h2 class="section-header" data-htextrainfo="76">Blazor</h2>
+
+			</section>
+
+			<section class="section-alignment card" id="pros-and-cons" data-htextrainfo="77">
+				<h1 class="section-header" data-htextrainfo="78">Предимства и недостатъци</h1>
+				<p data-htextrainfo="79">
+					В тази секция ще бъдат разгледани предимствата и недостатъците на WebAssembly.
+				</p>
+				<h2 class="section-header" data-htextrainfo="80">Предимства</h2>
+				<ul data-htextrainfo="81">
+					<li data-htextrainfo="82">
+						<section data-htextrainfo="83">
+							<h5 data-htextrainfo="84">Многоплатформеност</h5>
+							<p data-htextrainfo="85">
+								Много от разработчиците се стремят към
+								възмонжно най-голяма производителност за всяка платформа,
+								но това изисква доста усилия от тяхна
+								страна. WebAssembly изпъква най-много с функционалността,
+								че код може да се напише на всякакъв език
+								за програмиране, различен от JavaScript, и да се създаде
+								уеб приложение. Портативността е една от
+								най-изпъкващите характеристики на WebAssembly от самото начало,
+								оптимизирайки ресурсите, които използва
+								дадено уеб приложение.
+							</p>
+						</section>
+					</li>
+
+					<li data-htextrainfo="86">
+						<section data-htextrainfo="87">
+							<h5 data-htextrainfo="88">Оптимизация</h5>
+							<p data-htextrainfo="89">
+								WebAssembly е статичен, което означава, че оптимизацията на кода се прилага
+								преди да достигне до браузъра, което води по-добра производителност и оптимизация
+								на времето.
+							</p>
+						</section>
+					</li>
+
+					<li data-htextrainfo="90">
+						<section data-htextrainfo="91">
+							<h5 data-htextrainfo="92">Бързодействие</h5>
+							<p data-htextrainfo="93">
+								.wasm файловете, които се генерират по време на компилирането, са много малки,
+								което води до значително по-бързо време за зареждане и до по-висока скорост,
+								с която уеб приложението работи.
+							</p>
+						</section>
+					</li>
+
+					<li data-htextrainfo="94">
+						<section data-htextrainfo="95">
+							<h5 data-htextrainfo="96">Сигурност</h5>
+							<p data-htextrainfo="97">
+								Модулната система, с която работи WebAssembly, разделяйки уеб приложението на
+								малки парчета, предпазва потребителя от възможни хакерски атаки. Начинът, по който
+								е реализирано, е чрез изолиране на изпълнението на модулите.
+							</p>
+						</section>
+					</li>
+				</ul>
+
+				<h2 class="section-header" data-htextrainfo="98">Недостатъци</h2>
+				<ul data-htextrainfo="99">
+					<li data-htextrainfo="100">
+						<section data-htextrainfo="101">
+							<h5 data-htextrainfo="102">Липса на garbage collection</h5>
+							<p data-htextrainfo="103">
+								Един от най-големите недостатъци на WebAssembly е липсата на управление на паметта.
+								Езици като
+								WebAssembly не ползват garbage collector и се нуждае от механизми за управление на
+								заделената
+								памет.
+							</p>
+						</section>
+					</li>
+
+					<li data-htextrainfo="104">
+						<section data-htextrainfo="105">
+							<h5 data-htextrainfo="106">Работа с DOM</h5>
+							<p data-htextrainfo="107">
+								Все още WebAssembly трябва да работи с JavaScript вместо да работи директно с DOM.
+							</p>
+						</section>
+					</li>
+
+					<li data-htextrainfo="108">
+						<section data-htextrainfo="109">
+							<h5 data-htextrainfo="110">Сложност на езика</h5>
+							<p data-htextrainfo="111">
+								WebAssembly език от ниско ниво, което го прави по-труден за научаване, а това се явява
+								пречка да стане толкова известен, колкото JavaScript.
+							</p>
+						</section>
+					</li>
+				</ul>
+			</section>
+
+			<section class="section-alignment card" id="references" data-htextrainfo="112">
+				<h1 class="section-header" data-htextrainfo="113">Източници</h1>
+				<ul data-htextrainfo="114">
+					<li data-htextrainfo="115">
+						<a href="https://www.infoworld.com/article/3291780/what-is-webassembly-the-next-generation-web-platform-explained.html"
+							target="_blank" data-htextrainfo="116">
+							[1]Serdar Yegulalp, What is WebAssembly? The next-generation web platform explained,
+							27.05.2022
+						</a>
+					</li>
+
+					<li data-htextrainfo="117">
+						<a href="https://www.fullstacklabs.co/blog/what-is-webassembly" target="_blank"
+							data-htextrainfo="118">
+							[2]Luis Hernandez What Is WebAssembly And What Is It Used For?, unknown date
+						</a>
+					</li>
+
+					<li data-htextrainfo="119">
+						<a href="https://blog.logrocket.com/webassembly-how-and-why-559b7f96cd71/" target="_blank"
+							data-htextrainfo="120">
+							[3]Milica Mihajlija, WebAssembly: How and why, 14.08.2018
+						</a>
+					</li>
+
+					<li data-htextrainfo="121">
+						<a href="https://medium.com/front-end-weekly/webassembly-why-and-how-to-use-it-2a4f95c8148f"
+							target="_blank" data-htextrainfo="122">
+							[4]Vaibhav Kumar, WebAssembly: Easy explanation with code example, 15.01.2020
+						</a>
+					</li>
+
+					<li data-htextrainfo="123">
+						<a href="https://www.scoredigital.io/articles/webassembly-vs-javascript-similarities-differences-pros-and-cons"
+							target="_blank" data-htextrainfo="124">
+							[5]ScoreDigital, WebAssembly vs JavaScript:
+							Similarities, Differences &amp; Pros And Cons, 29.08.2022
+						</a>
+					</li>
+				</ul>
+			</section>
+		</article>
+	</main>
+
+	<script src="javascript/materialize.js" data-htextrainfo="125"></script>
+	<script src="directives/script.js" data-htextrainfo="126"></script>
+</body>
+
+</html>
