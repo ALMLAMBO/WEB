@@ -1,6 +1,7 @@
 .content {
     display: flex;
     justify-content: center;
+    tab-size: 4;
 }
 
 .brand-logo {
@@ -27,6 +28,11 @@ body {
     text-align: center;
 }
 
+.image {
+    width: 70%;
+    margin-left: 20px
+}
+
 ul {
     margin: 20px;
 }
@@ -46,20 +52,4 @@ p {
 
 h5 {
     margin: 20px;
-}
-
-#wasm-high-level {
-    width: 70%;
-}
-
-#wasm-text-binary {
-    width: 60%;
-}
-
-#wasm-js {
-    width: 70%;
-}
-
-#wasm-file-generation {
-    width: 70%;
 }
