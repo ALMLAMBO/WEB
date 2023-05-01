@@ -3,12 +3,14 @@
     justify-content: center;
 }
 
+.brand-logo {
+    margin-left: 20px;
+}
+
 .container-wrapper {
     margin: 20px 50px 20px 50px;
     padding: 15px;
     width: 60%;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
@@ -18,6 +20,7 @@ body {
 
 .section-alignment {
     margin: 50px;
+    padding-bottom: 20px;
 }
 
 .section-header {
@@ -30,6 +33,10 @@ ul {
 
 ul > li {
     text-align: justify;
+}
+
+li {
+    margin-bottom: 10px;
 }
 
 p {
