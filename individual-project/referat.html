@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<title>Web Assembly</title>
 	<link rel="stylesheet" href="css/materialize.css">
+	<link rel="stylesheet" href="css/github.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -14,7 +15,7 @@
 		<nav class="nav-wrapper indigo darken-4">
 			<a href="#" class="brand-logo">WASM</a>
 			<a href="#" data-target="mobile-navbar" class="sidenav-trigger">
-				<i class="material-icons">menu</i></a>
+				<i class="material-icons">menu</i></a>  
 			<ul class="right hide-on-med-and-down">
 				<li><a href="#intro">Въведение</a></li>
 				<li><a href="#what-is-it">Какво представлява</a></li>
@@ -118,13 +119,13 @@
 					На следващата фигура е показано на най-високо ниво
 					процесът на работа на Wasm.
 				</p>
-				<img id="wasm-high-level" src="img/wasm-high-level.png" alt="">
+				<img id="wasm-high-level" class="image" src="img/wasm-high-level.png" alt="">
 				<p>Фигура 1. Процес на работа на Wasm на най-високо ниво</p>
 				<p>
 					Wasm се състои от файлове, които са четими от хората, и такива, които се изпълняват от браузърите.
 					На следващата фигура това може да бъде разгледано.
 				</p>
-				<img id="wasm-text-binary" src="img/wasm-text-binary.png" alt="">
+				<img id="wasm-text-binary" class="image" src="img/wasm-text-binary.png" alt="">
 				<p>Фигура 2. Файлове на Wasm</p>
 				<p>
 					Wasm позволява на езици като C, C++ и други да бъдат
@@ -134,7 +135,7 @@
 					синхрон с него.
 					На следващата фигура това може да бъде разгледано.
 				</p>
-				<img id="wasm-js" src="img/wasm-js.png" alt="">
+				<img id="wasm-js" class="image" src="img/wasm-js.png" alt="">
 				<p>Фигура 3. Работа на Wasm</p>
 				<p>
 					Примерът, който ще бъде разгледан за това как работи WebAssembly, ще бъде програма, написана на C.
@@ -142,13 +143,12 @@
 					който ще се представи, може да бъде разгледан в секцията Код 1.
 				</p>
 				<pre>
-					<code>
-					#include &lt;stdio.h&gt;
-
-					int main() {
-						printf("Hello World!\n");
-						return 0;
-					}
+					<code class="language-c">
+		#include &lt;stdio.h&gt;
+		int main() {
+			printf("Hello World!\n");
+			return 0;
+		}
 		   			</code>
 	   			</pre>
 				<p>Код 1. Програма Hello World, написана на С.</p>
@@ -159,7 +159,7 @@
 				</p>
 				<pre>
 					<code>
-						emcc hello.c -s WASM=1 -o hello.html
+		emcc hello.c -s WASM=1 -o hello.html
 					</code>
 	   			</pre>
 				<p>
@@ -192,7 +192,7 @@
 					до външните JavaScript променливи, освен ако не се
 					копират в паметта или подадени чрез call stack.
 				</p>
-				<img id="wasm-file-generation" src="img/wasm-file-generation.png" alt="" "71">
+				<img id="wasm-file-generation" class="image" src="img/wasm-file-generation.png" alt="" "71">
 				<p>
 					Фигура 4. Генериране на файлове за wasm
 				</p>
@@ -345,6 +345,9 @@
 	</main>
 
 	<script src="javascript/materialize.js"></script>
+	<script src="javascript/highlight.min.js"></script>
+	<script src="javascript/c.min.js"></script>
+	<script src="javascript/bash.min.js"></script>
 	<script src="directives/script.js"></script>
 </body>
 
