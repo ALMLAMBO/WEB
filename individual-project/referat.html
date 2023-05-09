@@ -105,14 +105,27 @@
 					<li>
 						Wasm се представя в двоичен формат и съдържа
 						по-малко информация за сваляне като има и формат, четим от хора -
-						WAT(WebAssembly Text).
+						WAT(WebAssembly Text). Пример за WAT може да бъде разгледан на 
+						Код 1.
 					</li>
-					<!--ADD WHAT IS WAT-->
 					<li>
 						Двоичните файлове на Wasm се декодират и компилират до машинен код без нуждата от оптимизация,
 						защото по време на генерирането на Wasm двоичните файлове са напълно оптимизирани.
 					</li>
 				</ul>
+				<pre>
+					<code>
+		(
+		module
+		(func $multiply (param $lhs i32) (param $rhs i32) (result i32)
+    	get_local $lhs
+   		get_local $rhs
+    	i32.mul)
+  		(export "multiply" (func $multiply))
+		)   
+					</code>
+				</pre>
+				<p>Код 1 пример за WAT</p>
 			</section>
 
 			<section class="section-alignment card" id="how-it-works">
@@ -152,7 +165,7 @@
 				<p>
 					Примерът, който ще бъде разгледан за това как работи WebAssembly, ще бъде програма, написана на C.
 					Кодът,
-					който ще се представи, може да бъде разгледан в секцията Код 1.
+					който ще се представи, може да бъде разгледан в секцията Код 2.
 				</p>
 				<pre>
 					<code class="language-c">
@@ -163,10 +176,10 @@
 		}
 		   			</code>
 	   			</pre>
-				<p>Код 1. Програма Hello World, написана на С.</p>
+				<p>Код 2. Програма Hello World, написана на С.</p>
 				<p>
 					За да бъде компилирана програмата с Wasm, е необходимо да се инсталира Emscripten.
-					Изпълнявайки командата, показана в Код 2, ще бъдат генерирани един файл с разширение wasm,
+					Изпълнявайки командата, показана в Код 3, ще бъдат генерирани един файл с разширение wasm,
 					един html документ и един js файл.
 				</p>
 				<pre>
@@ -175,7 +188,7 @@
 					</code>
 	   			</pre>
 				<p>
-					Kод 2. Генериране на на файлове за изпълнение в браузъра.
+					Kод 3. Генериране на на файлове за изпълнение в браузъра.
 				</p>
 				<p>
 					По време на изпълнението се генерират html и js
@@ -354,7 +367,17 @@
 
 					<li>
 						<a href="https://www.investopedia.com/terms/a/assembly-language.asp" target="_blank">
-							[6]Assembly Language, Jason Fernando, 01.10.2022
+							[6]Jason Fernando, Assembly Language, 01.10.2022
+						</a>
+					</li>
+					<li>
+						<a href="https://www.webassemblyman.com/wat_webassembly_text_format.html" target="_blank">
+							[7]WebAssemblyMan, WAT, Webassembly text format, unknown date 
+						</a>
+					</li>
+					<li>
+						<a href="https://www.bizety.com/2022/12/27/webassembly-tools-and-frameworks/" target="_blank">
+							[8]Bitezy Staff, WebAssembly Tools and Frameworks, 27.12.2022
 						</a>
 					</li>
 				</ul>
