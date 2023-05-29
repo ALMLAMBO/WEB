@@ -272,7 +272,7 @@
 					сигурни, че уеб приложението, което са разработили, ще е надежно и 
 					може да се поддържа.
 				</p>
-				
+
 				<h3 class="section-header">Недостатъци</h3>
 				<h5>Оптимизация</h5>
 				<p>
@@ -292,6 +292,87 @@
 					за да се използва ефективно. Това може да затрудни разработчиците, които са
 					нови за рамката, да започнат да работят.
 				</p>
+
+				<h3 class="section-header">Примери как изглежда</h3>
+				<p>
+					На следващите блокове код могат да бъдат разгледани примери 
+					за синтаксиса на Blazor WebAssembly. Повече подробности могат да бъдат 
+					разгледани в тема номер 83.
+				</p>
+
+				<pre>
+					<code>
+		@page "/movies"
+		
+		<h3>Movies</h3>
+		
+		@code {
+		
+		}
+					</code>
+				</pre>
+				<p>Код 4. Пример за празен компонент</p>
+				
+				<pre>
+					<code>
+		@code {
+			Movie movie = new Movie();
+			[Parameter] public List<string> CurrentMovies { get; set; }
+			[Parameter] public EventCallback OnClose { get; set; }
+			[Parameter] public EventCallback<Movie> AddMovieToList { get; set; }
+			public bool ShowError { get; set; }
+
+			public async Task Save()
+			{
+				if (Exists(movie.Name))
+				{
+					ShowError = true;
+					return;
+				}
+		
+				await AddMovieToList.InvokeAsync(movie);
+			}
+
+			public async Task Close()
+			{
+				await OnClose.InvokeAsync();
+			}
+
+			public bool Exists(string name)
+			{
+				Console.WriteLine($"Checking it exists: {name}");
+				return CurrentMovies.Any(cm => cm == name);
+			}
+		}
+					</code>
+				</pre>
+				<p>Код 5. Пример за @code структура на един компонент</p>
+
+				<pre>
+					<code>
+		@foreach (var movie in movies)
+		{
+			&lt;ul>
+				&lt;li>@movie.Name&lt;/li>
+				&lt;li>@movie.Description&lt;/li>
+				&lt;li>@movie.Rating&lt;/li>
+			&lt;/ul>
+		}
+		&lt;button class="btn btn-primary" @onclick="Add">Add a movie!</button>
+		@if (DisplayModal)
+		{
+			&lt;div class="dialog-container">
+			&lt;div class="dialog">
+			&lt;AddMovieModal CurrentMovies="MovieNames"
+								AddMovieToList="AddMovieToList"
+								OnClose="Close">
+						&lt;/AddMovieModal>
+				&lt;/div>
+			&lt;/div>
+		}
+					</code>
+				</pre>
+				<p>Код 6. Пример за използване на цикъл в компонент</p>
 			</section>
 
 			<section class="section-alignment card" id="pros-and-cons">
@@ -448,6 +529,12 @@
 						</a>
 					</li>
 				</ul>
+			</section>
+
+			<section class="section-alignment card">
+				<p>
+					Изготвил: Александър Маринов, фн: 62622, Последна модификация: 29.05.2023г., Дата на защита: 10.05.2023г.
+				</p>
 			</section>
 		</article>
 	</main>
